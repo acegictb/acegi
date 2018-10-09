@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using acegi.Dao;
+using acegi.DBA;
+using System;
 using System.Windows.Forms;
 
 namespace acegi
@@ -14,9 +13,16 @@ namespace acegi
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Dbs.GetSession();
+
+            Login login = new Login();
+            login.ShowDialog();
+            if (login.IsLogin)
+            {
+                login.Close();
+                Application.EnableVisualStyles();
+                Application.Run(new Principal());
+            }
         }
     }
 }
