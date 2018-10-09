@@ -22,7 +22,7 @@ namespace acegi.Dao
 
                 if (categorias != null && categorias.Count > 0)
                 {
-                    _categoria = categorias[0];
+                    _categoria = categorias[0]; 
                 }
             }
             catch
